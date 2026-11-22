@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liberty Foods · Order online</title>
+<meta name="description" content="Order Liberty Foods jollof, fried rice, loaded fries, spaghetti and indomie. Demo prepared by SyberCodes.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,800;112,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--coral:#e4573a;--coral2:#c9442a;--ink:#2b1c18;--blush:#fdf0ea;--blush2:#f9ddd1;--mut:#7a625b;--line:#f0d6ca;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:#fff;color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%;padding-bottom:84px}
+img{display:block;max-width:100%}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit}
+.h{font-family:Archivo,'Arial Black',sans-serif;font-stretch:112%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+.stripes{height:22px;background:repeating-linear-gradient(180deg,var(--coral) 0 5px,#fff 5px 9px)}
+.stripes.s{height:14px}
+.demo{background:var(--ink);color:#f7e4dc;font-size:12.5px;text-align:center;padding:6px 12px}
+.demo a{color:#ffb9a5;font-weight:700}
+header.top{position:sticky;top:0;z-index:30;background:#fff;border-bottom:2px solid var(--coral);height:62px}
+header.top .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.mark{width:40px;height:40px;object-fit:contain}
+.brand b{font-size:18px}
+.ord{background:var(--coral);color:#fff;font-weight:700;padding:10px 16px;border-radius:8px;display:flex;gap:8px;align-items:center;white-space:nowrap}
+.ord:hover{background:var(--coral2)}
+.ord b{background:#fff;color:var(--coral);border-radius:6px;min-width:22px;height:22px;display:inline-grid;place-items:center;font-size:12.5px;padding:0 5px}
+
+.hero{background:var(--coral);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 20%,rgba(255,255,255,.14),transparent 45%)}
+.hero .wrap{position:relative;display:grid;gap:26px;padding-top:34px;padding-bottom:40px;align-items:center}
+.hero h1{font-size:clamp(40px,10.5vw,84px)}
+.hero p{margin-top:14px;font-size:18px;max-width:26em;color:#fff2ec}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-block;padding:14px 24px;border-radius:8px;font-weight:700;text-decoration:none}
+.btn.w{background:#fff;color:var(--coral)}.btn.w:hover{background:var(--blush)}
+.btn.o{border:2px solid #fff;color:#fff}.btn.o:hover{background:#fff2}
+.plate{width:min(340px,78vw);aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid #fff;box-shadow:0 18px 40px -16px rgba(0,0,0,.45);justify-self:center}
+.plate img{width:100%;height:100%;object-fit:cover}
+@media(min-width:820px){.hero .wrap{grid-template-columns:1.2fr 1fr;padding-top:56px;padding-bottom:62px}.plate{width:min(420px,100%)}}
+
+.menu{padding:40px 0 10px;background:#fff}
+.menu h2{font-size:clamp(30px,6vw,46px);margin:0 0 4px}
+.menu .sub{color:var(--mut);margin-bottom:20px}
+.sec{margin-top:34px}
+.sec>h3{font-size:20px;color:var(--coral);padding-bottom:8px;border-bottom:3px solid var(--coral);margin-bottom:6px;display:flex;justify-content:space-between}
+.list{display:grid;gap:0}
+@media(min-width:820px){.list{grid-template-columns:1fr 1fr;column-gap:36px}}
+.row{display:grid;grid-template-columns:96px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);width:100%;text-align:left}
+.row .im{width:96px;height:96px;border-radius:14px;overflow:hidden;background:var(--blush)}
+.row .im img{width:100%;height:100%;object-fit:cover}
+.row .im.ph{display:grid;place-items:center;background:var(--blush2);color:var(--coral);font-family:Archivo,sans-serif;font-weight:900;font-size:26px;letter-spacing:-.04em}
+.row b{font-size:18px;display:block;line-height:1.2}
+.row .d{display:block;color:var(--mut);font-size:14.5px;line-height:1.35;margin-top:2px}
+.row .pr{display:block;font-weight:700;color:var(--coral);margin-top:6px}
+.row .add{width:42px;height:42px;border-radius:10px;background:var(--coral);color:#fff;font-size:26px;line-height:1;display:grid;place-items:center}
+.row:hover .add{background:var(--coral2)}
+.row.sm{grid-template-columns:1fr auto;padding:14px 0}
+.row.sm .pr{display:inline;margin:0 0 0 8px}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.find{margin-top:44px;background:var(--blush);padding:40px 0}
+.find .wrap{display:grid;gap:22px}
+.bagpic img{width:100%;max-width:340px;height:auto;border-radius:16px;display:block;margin:0 auto;box-shadow:0 14px 34px rgba(43,28,24,.22)}
+.find h2{font-size:clamp(28px,5vw,40px)}
+.find p{color:var(--mut);margin-top:6px}
+.callrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.callrow a{background:#fff;border:2px solid var(--coral);color:var(--coral);font-weight:700;padding:11px 18px;border-radius:8px;text-decoration:none;font-size:18px}
+.callrow a:hover{background:var(--coral);color:#fff}
+@media(min-width:820px){.find .wrap{grid-template-columns:1fr 1fr;gap:60px;align-items:center}}
+footer{background:var(--coral);color:#fff;padding:26px 0 24px;font-size:14px}
+footer .dn a{font-weight:700;text-decoration:underline}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:25;padding:10px 14px;transform:translateY(120%);transition:transform .2s}
+.bar.on{transform:none}
+.bar button{width:100%;max-width:560px;margin:0 auto;background:var(--ink);color:#fff;padding:15px 20px;border-radius:12px;font-weight:700;display:flex;justify-content:space-between;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.bar button b{color:#ffb9a5}
+.scrim{position:fixed;inset:0;background:rgba(43,28,24,.6);opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:50;background:#fff;left:0;right:0;bottom:0;max-height:92svh;overflow:auto;transform:translateY(105%);transition:transform .28s;border-radius:22px 22px 0 0}
+.sheet.on{transform:none}
+.sheet .big{background:var(--blush2)}
+.sheet .big img{width:100%;max-height:40svh;aspect-ratio:4/3;object-fit:cover}
+.sheet .big.ph{height:130px;display:grid;place-items:center;color:var(--coral);font-family:Archivo,sans-serif;font-weight:900;font-size:56px}
+.sheet .info{padding:18px 20px 22px}
+.sheet h3{font-size:28px}
+.sheet .ds{color:var(--mut);margin-top:6px}
+.sheet .l{font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:16px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:2px solid var(--line);border-radius:8px;padding:9px 15px;font-weight:700;background:#fff}
+.chips button.on{background:var(--coral);border-color:var(--coral);color:#fff}
+.addb{width:100%;margin-top:20px;background:var(--coral);color:#fff;padding:15px 20px;border-radius:10px;font-weight:700;font-size:17px;display:flex;justify-content:space-between}
+.addb:hover{background:var(--coral2)}
+.x{position:absolute;top:10px;right:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.95);font-size:24px;line-height:1;z-index:3}
+@media(min-width:860px){
+ .sheet{left:50%;top:50%;bottom:auto;right:auto;width:min(820px,92vw);max-height:88svh;border-radius:20px;transform:translate(-50%,-46%);opacity:0;pointer-events:none;transition:.25s;display:grid;grid-template-columns:1fr 1fr}
+ .sheet.on{transform:translate(-50%,-50%);opacity:1;pointer-events:auto}
+ .sheet .big img{max-height:none;height:100%;aspect-ratio:auto}
+ .sheet .big.ph{height:auto;min-height:280px}
+ .sheet .info{align-self:center;padding:30px}
+}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);background:#fff;z-index:55;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--coral);color:#fff}
+.dh h3{font-size:22px}.dh button{font-size:30px;width:42px;height:42px;color:#fff}
+.db{flex:1;overflow:auto;padding:8px 18px 18px}
+.empty{color:var(--mut);padding:24px 0}
+.ln{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:13px 0;border-bottom:1px solid var(--line)}
+.ln b{font-weight:700}.ln small{display:block;color:var(--mut)}.ln .p{font-weight:700;text-align:right}
+.q{display:flex;align-items:center;gap:12px}.q button{width:30px;height:30px;border-radius:8px;border:2px solid var(--coral);color:var(--coral);font-weight:700}
+.fs label.l{display:block;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:16px 0 6px}
+.fs input[type=text],.fs textarea{width:100%;padding:12px;border:2px solid var(--line);border-radius:10px;background:#fff}
+.fs textarea{min-height:66px;resize:vertical}
+.err{color:#b3261e;font-weight:700;margin-top:8px;min-height:1.2em}
+.df{padding:14px 18px;border-top:2px solid var(--line);background:var(--blush)}
+.sum{display:flex;justify-content:space-between;font-size:20px;font-weight:700}
+.fine{font-size:13px;color:var(--mut);margin:4px 0 10px}
+.wa{width:100%;background:#1f8f4a;color:#fff;padding:15px;border-radius:10px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:10px}
+.wa svg{width:20px;height:20px;fill:#fff}.wa:disabled{opacity:.45;cursor:not-allowed}
+.modal{position:fixed;inset:0;z-index:70;background:rgba(43,28,24,.75);display:none;align-items:center;justify-content:center;padding:16px}
+.modal.on{display:flex}
+.mbox{background:#fff;border-radius:18px;max-width:520px;width:100%;max-height:92svh;overflow:auto;padding:22px}
+.mbox h3{font-size:23px;line-height:1.1}
+.mbox .s{color:var(--mut);margin:8px 0 12px;font-size:15px}
+.mbox pre{white-space:pre-wrap;background:var(--blush);border:2px solid var(--line);border-radius:12px;padding:12px;font:14px/1.5 'DM Sans',sans-serif}
+.mact{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.mact>*{flex:1 1 200px;text-align:center;text-decoration:none;padding:13px;border-radius:10px;font-weight:700}
+.mact .a{background:var(--coral);color:#fff}.mact .b{border:2px solid var(--ink)}
+.toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.2s;z-index:80;font-weight:700;font-size:14px}
+.toast.on{opacity:1;transform:translateX(-50%)}
+@media(min-width:760px){.bar{display:none}body{padding-bottom:0}}
+@media(max-width:380px){.row{grid-template-columns:80px 1fr auto}.row .im{width:80px;height:80px}.brand b{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="demo">Demo prepared for Liberty Foods by <a href="#">SyberCodes</a> · Prices, items and photos are samples and nothing is sent from this page</div>
+<div class="stripes s"></div>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top"><img class="mark" src="img/logo.png" alt="" width="40" height="40"><b class="h">Liberty Foods</b></a>
+  <button class="ord" id="openCart" aria-label="Open your order">Order <b id="count">0</b></button>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <h1 class="h">Hungry?<br>We deliver.</h1>
+    <p>Jollof, fried rice, loaded fries, spaghetti and indomie, made fresh near Liberty Hostel. Order here and it lands on our WhatsApp.</p>
+    <div class="acts"><a class="btn w" href="#menu">See the menu</a><a class="btn o" href="#find">Call us</a></div>
+  </div>
+  <div class="plate"><img src="img/hero.jpg" alt="A plate of jollof rice" width="600" height="600"></div>
+</div></section>
+<div class="stripes"></div>
+
+<section class="menu" id="menu"><div class="wrap">
+  <h2 class="h">Our menu</h2>
+  <p class="sub">Tap a dish to choose your size and extras.</p>
+  <div id="sections"></div>
+</div></section>
+
+<section class="find" id="find"><div class="wrap">
+  <div class="bagpic"><img src="img/bag.jpg" alt="A Liberty Foods paper bag with a foil tray of jollof rice" width="900" height="1287" loading="lazy"></div>
+  <div><h2 class="h">Find us</h2><p>Liberty Hostel, near Canam Premium.<br>Order here, or call us directly.</p>
+  <div class="callrow"><a href="tel:0248724634">024 872 4634</a><a href="tel:0503167431">050 316 7431</a></div></div>
+</div></section>
+</main>
+<div class="stripes s"></div>
+<footer><div class="wrap"><p class="dn">Demo prepared for Liberty Foods by <a href="#">SyberCodes</a>. Brand colours taken from their packaging. The logo and bag photo come from their packaging mock-up; swap in their original files when available.</p></div></footer>
+
+<div class="bar" id="bar"><button id="barBtn"><span id="barTxt">View order</span><b id="barTot">GH₵0</b></button></div>
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Item details"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Your order">
+  <div class="dh"><h3 class="h">Your order</h3><button id="closeCart" aria-label="Close">×</button></div>
+  <div class="db"><div id="lines"></div>
+    <div class="fs">
+      <label class="l">How do you want it?</label><div class="chips" id="otype"><button type="button" class="on">Delivery</button><button type="button">Pickup</button></div>
+      <label class="l" for="fname">Your name</label><input type="text" id="fname" autocomplete="name" placeholder="e.g. Kwame">
+      <div id="locWrap"><label class="l" for="floc">Delivery location</label><input type="text" id="floc" placeholder="Hostel / room / landmark"></div>
+      <label class="l" for="fnote">Note (optional)</label><textarea id="fnote" placeholder="Less pepper, no onions…"></textarea>
+      <p class="err" id="err" role="alert"></p>
+    </div></div>
+  <div class="df">
+    <div class="sum"><span>Total</span><b id="total">GH₵0</b></div>
+    <p class="fine">Delivery fee, if any, is confirmed on WhatsApp.</p>
+    <button class="wa" id="send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.6a11.9 11.9 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.5zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.9 9.9 0 0 1-1.5-5.3c0-5.5 4.5-9.9 10-9.9 2.6 0 5.1 1 7 2.9a9.9 9.9 0 0 1 2.9 7c0 5.5-4.5 9.9-10.1 9.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.7.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>Send order on WhatsApp</button>
+  </div>
+</aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Demo preview"><div class="mbox">
+  <h3 class="h">Demo mode: here's what happens next</h3>
+  <p class="s">On the live site, this button opens WhatsApp with the message below, sent straight to Liberty Foods. Nothing has been sent from this demo.</p>
+  <pre id="mmsg"></pre>
+  <div class="mact"><a class="a" href="https://wa.me/233537025078" target="_blank" rel="noopener">Talk to SyberCodes</a><button class="b" id="mclose" type="button">Keep exploring</button></div>
+</div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* SAMPLE PRICES: replace with Liberty Foods' real prices */
+const WA='233248724634'; /* from their packaging: 024 872 4634. Confirm the WhatsApp number */
+const P='img/';
+const PROT=[['Chicken',0],['Sausage',3],['Fish',8]];
+const ADD=[['None',0],['Egg',3],['Sausage',5],['Chicken',10]];
+const MENU=[
+ {cat:'Rice & more',items:[
+  {id:'jollof',name:'Jollof Rice',desc:'Smoky jollof served with salad and shito.',img:'jollof',sizes:[['Regular',35],['Large',50]],groups:[{n:'Protein',c:PROT}]},
+  {id:'fried',name:'Fried Rice',desc:'Veg fried rice with salad and shito.',img:'fried',sizes:[['Regular',35],['Large',50]],groups:[{n:'Protein',c:PROT}]},
+  {id:'fries',name:'Loaded Fries',desc:'Crispy fries topped with cheese sauce and toppings.',img:'fries',sizes:[['Regular',30],['Large',45]],groups:[{n:'Topping',c:[['Chicken',0],['Sausage',0],['Beef',5]]}]},
+  {id:'spag',name:'Spaghetti',desc:'Spaghetti in rich tomato sauce.',sizes:[['Regular',25],['Large',40]],groups:[{n:'Add-on',c:ADD}]},
+  {id:'indo',name:'Indomie',desc:'Noodles cooked your way.',sizes:[['Regular',20],['Special',35]],groups:[{n:'Add-on',c:ADD}]}]},
+ {cat:'Extras & drinks',small:1,items:[
+  {id:'egg',name:'Boiled Egg',price:3},
+  {id:'plantain',name:'Fried Plantain',price:5},
+  {id:'xchicken',name:'Extra Chicken',price:15},
+  {id:'soft',name:'Soft Drink',price:10},
+  {id:'water',name:'Bottled Water',price:5}]}
+];
+const $=s=>document.querySelector(s),cur=n=>'GH₵'+n;
+const all=MENU.flatMap(c=>c.items),byId=Object.fromEntries(all.map(i=>[i.id,i]));
+const minP=i=>i.sizes?Math.min(...i.sizes.map(s=>s[1])):i.price;
+const hasOpts=i=>!!(i.sizes||i.groups);
+let cart=[],otype='Delivery',cur_id=null,sel={g:[],s:0};
+$('#sections').innerHTML=MENU.map(c=>`<div class="sec"><h3 class="h"><span>${c.cat}</span></h3><div class="list">`+c.items.map(i=>c.small
+ ?`<button class="row sm" data-id="${i.id}" aria-label="Add ${i.name}, ${cur(i.price)}"><span><b style="display:inline;font-size:17px">${i.name}</b><span class="pr">${cur(i.price)}</span></span><span class="add" aria-hidden="true">+</span></button>`
+ :`<button class="row" data-id="${i.id}" aria-label="${i.name}, from ${cur(minP(i))}"><span class="im ${i.img?'':'ph'}">${i.img?`<img src="${P}${i.img}.jpg" alt="" width="96" height="96" loading="eager">`:'LB'}</span><span><b>${i.name}</b><span class="d">${i.desc}</span><span class="pr">from ${cur(minP(i))}</span></span><span class="add" aria-hidden="true">+</span></button>`).join('')+`</div></div>`).join('');
+function calc(it,o){let p=it.sizes?it.sizes[o.s][1]:it.price;(it.groups||[]).forEach((g,gi)=>p+=g.c[o.g[gi]||0][1]);return p}
+function detail(it,o){const d=[];(it.groups||[]).forEach((g,gi)=>{const c=g.c[o.g[gi]||0];if(c[0]!=='None')d.push(c[0])});if(it.sizes)d.unshift(it.sizes[o.s][0]);return d.join(', ')}
+function openSheet(id){const it=byId[id];cur_id=id;sel={g:[],s:0};
+  $('#sheet').innerHTML=`<button class="x" id="sx" aria-label="Close">×</button><div class="big ${it.img?'':'ph'}">${it.img?`<img src="${P}${it.img}.jpg" alt="${it.name}">`:'LB'}</div><div class="info"><h3 class="h">${it.name}</h3><p class="ds">${it.desc}</p>`
+   +(it.groups||[]).map((g,gi)=>`<div class="l">${g.n}</div><div class="chips" data-g="${gi}">${g.c.map((c,ci)=>`<button type="button" class="${ci?'':'on'}" data-v="${ci}">${c[0]}${c[1]?' +'+cur(c[1]):''}</button>`).join('')}</div>`).join('')
+   +(it.sizes?`<div class="l">Size</div><div class="chips" data-s="1">${it.sizes.map((s,si)=>`<button type="button" class="${si?'':'on'}" data-v="${si}">${s[0]} · ${cur(s[1])}</button>`).join('')}</div>`:'')
+   +`<button class="addb" id="addb" type="button"><span>Add to order</span><b id="addp">${cur(calc(it,sel))}</b></button></div>`;
+  $('#sheet').classList.add('on');$('#scrim').classList.add('on');$('#sheet').scrollTop=0}
+function closeAll(){['#sheet','#drawer'].forEach(s=>$(s).classList.remove('on'));$('#scrim').classList.remove('on')}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),1500)}
+function addLine(it,o){const d=detail(it,o),k=it.id+'|'+d,f=cart.find(l=>l.k===k);if(f)f.qty++;else cart.push({k,name:it.name,detail:d,price:calc(it,o),qty:1});render();toast(it.name+' added')}
+document.addEventListener('click',e=>{
+  const row=e.target.closest('.row');
+  if(row){const it=byId[row.dataset.id];if(hasOpts(it))openSheet(it.id);else addLine(it,{g:[],s:0});return}
+  if(e.target.closest('#sx')){closeAll();return}
+  const chip=e.target.closest('#sheet .chips button');
+  if(chip){const w=chip.parentNode;w.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b===chip));
+    if(w.dataset.g!==undefined)sel.g[+w.dataset.g]=+chip.dataset.v;else sel.s=+chip.dataset.v;$('#addp').textContent=cur(calc(byId[cur_id],sel));return}
+  if(e.target.closest('#addb')){addLine(byId[cur_id],sel);closeAll();return}
+  const ot=e.target.closest('#otype button');
+  if(ot){otype=ot.textContent;document.querySelectorAll('#otype button').forEach(b=>b.classList.toggle('on',b===ot));$('#locWrap').style.display=otype==='Delivery'?'':'none';return}
+  const q=e.target.closest('[data-q]');
+  if(q){const l=cart[+q.dataset.i];l.qty+=+q.dataset.q;if(l.qty<1)cart.splice(+q.dataset.i,1);render()}
+});
+const total=()=>cart.reduce((s,l)=>s+l.price*l.qty,0);
+function render(){const n=cart.reduce((s,l)=>s+l.qty,0);
+  $('#count').textContent=n;$('#total').textContent=cur(total());$('#bar').classList.toggle('on',n>0);$('#barTxt').textContent='View order ('+n+')';$('#barTot').textContent=cur(total());
+  $('#lines').innerHTML=cart.length?cart.map((l,i)=>`<div class="ln"><div><b>${l.name}</b>${l.detail?`<small>${l.detail}</small>`:''}</div><div class="p">${cur(l.price*l.qty)}</div><div class="q"><button data-q="-1" data-i="${i}" aria-label="Fewer">−</button><span>${l.qty}</span><button data-q="1" data-i="${i}" aria-label="More">+</button></div></div>`).join(''):'<p class="empty">Nothing here yet. Pick something from the menu.</p>';
+  $('#send').disabled=!cart.length}
+$('#openCart').onclick=$('#barBtn').onclick=()=>{$('#drawer').classList.add('on');$('#scrim').classList.add('on')};
+$('#closeCart').onclick=closeAll;$('#scrim').onclick=closeAll;
+$('#send').onclick=()=>{
+  const name=$('#fname').value.trim(),loc=$('#floc').value.trim(),note=$('#fnote').value.trim();
+  if(!cart.length)return;
+  if(!name){$('#err').textContent='Please enter your name.';$('#fname').focus();return}
+  if(otype==='Delivery'&&!loc){$('#err').textContent='Please enter your delivery location.';$('#floc').focus();return}
+  $('#err').textContent='';
+  const lines=cart.map((l,i)=>`${i+1}. ${l.name}${l.detail?' ('+l.detail+')':''} x${l.qty} = ${cur(l.price*l.qty)}`);
+  const msg=['Hello Liberty Foods, I would like to place an order:','',...lines,'',`Total: ${cur(total())} (delivery fee not included)`,`Order type: ${otype}`,`Name: ${name}`,otype==='Delivery'?`Delivery location: ${loc}`:'',note?`Note: ${note}`:''].filter(x=>x!=='').join('\n');
+  $('#mmsg').textContent=msg;closeAll();$('#modal').classList.add('on')};
+$('#mclose').onclick=()=>$('#modal').classList.remove('on');
+$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('on')};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAll();$('#modal').classList.remove('on')}});
+render();
+</script>
+</body>
+</html>
